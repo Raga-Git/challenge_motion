@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "985130719647",
+    "project_id": "challenge-motion-99d14",
+    "storage_bucket": "challenge-motion-99d14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985130719647:android:4a51a29db5f24c44a405aa",
+        "android_client_info": {
+          "package_name": "com.example.challenge_motion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI4Cf9cXCOWqv86edhbRJb5WYUZx9n1Dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

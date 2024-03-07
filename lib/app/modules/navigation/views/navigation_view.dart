@@ -14,20 +14,37 @@ class NavigationView extends GetView<NavigationController> {
   Widget build(BuildContext context) {
     return GetBuilder<NavigationController>(builder: (controller) {
       return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
-            child: IndexedStack(
-          index: controller.tabIndex,
-          children: [
-            HomeView(),
-            ProdukPageView(),
-            RiwayatPageView(),
-            ProfilePageView()
-          ],
-        )),
+          child: IndexedStack(
+            index: controller.tabIndex,
+            children: [
+              HomeView(),
+              ProdukPageView(),
+              RiwayatPageView(),
+              ProfilePageView(),
+            ],
+          ),
+        ),
+        floatingActionButton: controller.tabIndex != 3
+            ? FloatingActionButton(
+                onPressed: () {},
+                child: Image.asset(
+                  'assets/images/plus.png',
+                  scale: 1.5,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                backgroundColor: Color(0xFF62C172),
+              )
+            : null,
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.miniCenterDocked,
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: true,
-          fixedColor: Color(0xFF17C118),
           unselectedItemColor: Colors.black38,
+          selectedItemColor: Color(0xFF17C118),
           type: BottomNavigationBarType.fixed,
           onTap: controller.changeTab,
           currentIndex: controller.tabIndex,
@@ -36,6 +53,7 @@ class NavigationView extends GetView<NavigationController> {
                 icon: Image.asset(
                   'assets/images/beranda.png',
                   scale: 1.5,
+                  color: Color(0xFF17C118),
                 ),
                 label: 'Beranda'),
             BottomNavigationBarItem(

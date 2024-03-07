@@ -1,23 +1,10 @@
 import 'package:get/get.dart';
+import 'package:challenge_motion/app/data/models/produk_model.dart';
 
 class ProdukPageController extends GetxController {
-  //TODO: Implement ProdukPageController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  ProdukModel produkModel = ProdukModel(
+    namaProduk: 'Brokoli',
+    image: 'assets/images/brokoli.png',
+    proses: true,
+  );
 }

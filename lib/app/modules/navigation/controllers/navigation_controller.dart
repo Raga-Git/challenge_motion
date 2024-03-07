@@ -5,5 +5,6 @@ class NavigationController extends GetxController {
   void changeTab(int idx) {
     tabIndex = idx;
     update();
+    
   }
 }

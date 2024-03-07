@@ -25,37 +25,37 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.NAVIGATION,
-      page: () => const NavigationView(),
+      page: () => NavigationView(),
       binding: NavigationBinding(),
     ),
     GetPage(
       name: _Paths.PROFILE_PAGE,
-      page: () => const ProfilePageView(),
+      page: () =>  ProfilePageView(),
       binding: ProfilePageBinding(),
     ),
     GetPage(
       name: _Paths.RIWAYAT_PAGE,
-      page: () => const RiwayatPageView(),
+      page: () => RiwayatPageView(),
       binding: RiwayatPageBinding(),
     ),
     GetPage(
       name: _Paths.PRODUK_PAGE,
-      page: () => const ProdukPageView(),
+      page: () => ProdukPageView(),
       binding: ProdukPageBinding(),
     ),
     GetPage(
       name: _Paths.UBAH_PROFILE_PAGE,
-      page: () => const UbahProfilePageView(),
+      page: () => UbahProfilePageView(),
       binding: UbahProfilePageBinding(),
     ),
     GetPage(
       name: _Paths.UBAH_PASWWORD_PAGE,
-      page: () => const UbahPaswwordPageView(),
+      page: () => UbahPaswwordPageView(),
       binding: UbahPaswwordPageBinding(),
     ),
   ];

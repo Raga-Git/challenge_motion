@@ -1,6 +1,8 @@
 import 'package:challenge_motion/app/data/models/profile_model.dart';
+import 'package:challenge_motion/app/modules/ubah_paswword__page/views/ubah_paswword_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class ProfileCard extends StatelessWidget {
   final ProfileModel profileModel;
@@ -26,7 +28,7 @@ class ProfileCard extends StatelessWidget {
           height: 8,
         ),
         Text(
-          '${profileModel.namaLengkap}',
+          profileModel.namaLengkap,
           style: TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -48,7 +50,7 @@ class ProfileCard extends StatelessWidget {
           height: 8,
         ),
         Text(
-          '${profileModel.email}',
+          profileModel.email,
           style: TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -70,7 +72,7 @@ class ProfileCard extends StatelessWidget {
           height: 8,
         ),
         Text(
-          '${profileModel.noTelepon}',
+          profileModel.noTelepon,
           style: TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -92,7 +94,7 @@ class ProfileCard extends StatelessWidget {
           height: 8,
         ),
         Text(
-          '${profileModel.alamat}',
+          profileModel.alamat,
           style: TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -111,22 +113,23 @@ class ProfileCard extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        Row(
-          children: [
-            Text(
-              'Ubah Password',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
+        GestureDetector(
+          onTap: () {
+            Get.to(UbahPaswwordPageView());
+          },
+          child: Row(
+            children: [
+              Text(
+                'Ubah Password',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            // GestureDetector(
-            //     onTap: () {
-            //       Get.to(UbahPaswwordPageView());
-            //     },
-            //     child: Icon(Icons.chevron_right_outlined))
-          ],
+              Icon(Icons.chevron_right_outlined)
+            ],
+          ),
         ),
         const Divider(),
         const SizedBox(

@@ -1,13 +1,20 @@
+import 'package:challenge_motion/app/data/models/profile_model.dart';
+import 'package:challenge_motion/app/modules/shared/widgets/profile_card.dart';
 import 'package:challenge_motion/app/modules/ubah_profile__page/views/ubah_profile_page_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import '../../../data/models/profile_model.dart';
-import '../../shared/widgets/profile_card.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '../controllers/profile_page_controller.dart';
 
 class ProfilePageView extends GetView<ProfilePageController> {
-  const ProfilePageView({Key? key}) : super(key: key);
+  ProfilePageView({Key? key}) : super(key: key);
+
+  ProfilePageController profilePageController =
+      Get.put(ProfilePageController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,26 +30,28 @@ class ProfilePageView extends GetView<ProfilePageController> {
             const SizedBox(
               width: 16,
             ),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Natalie Diva',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
                 Text(
                   'nataliediva@gmail.com',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
-            const Spacer(),
+            Spacer(),
             GestureDetector(
               onTap: () {
                 Get.to(UbahProfilePageView());
@@ -59,15 +68,36 @@ class ProfilePageView extends GetView<ProfilePageController> {
         ),
         backgroundColor: const Color(0xFF62C172),
         toolbarHeight: 140,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(32, 48, 16, 16),
-        child: Row(
+        padding: const EdgeInsets.fromLTRB(32, 32, 16, 16),
+        child: Column(
           children: [
-            const SizedBox(
-              height: 32,
+            StreamBuilder(
+              stream:
+                  FirebaseFirestore.instance.collection('Profile').snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Text("Mohon tunggu...");
+                }
+
+                if (!snapshot.hasData) {
+                  return Text("Tidak ada data...");
+                }
+
+                //.doc('L8a0cNMdTBuwSo6mCEjh')
+                return ProfileCard(
+                  profileModel: ProfileModel(
+                    id: snapshot.data!.docs.first.id,
+                    namaLengkap: snapshot.data?.docs.first['namaLengkap'],
+                    email: snapshot.data?.docs.first['email'],
+                    alamat: snapshot.data?.docs.first['alamat'],
+                    noTelepon: snapshot.data?.docs.first['noTelepon'],
+                  ),
+                );
+              },
             ),
-            ProfileCard(profileModel: controller.profileModel),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
