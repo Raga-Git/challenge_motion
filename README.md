@@ -1,16 +1,12 @@
 # challenge_motion
 
-A new Flutter project.
+Fitur : Edit Profile, Add Produk, Delete Produk
+![image](https://github.com/Raga-Git/challenge_motion/assets/57023126/f6ea2447-8576-4221-997a-72b32c055542)
+![image](https://github.com/Raga-Git/challenge_motion/assets/57023126/91ede482-536a-49fa-9a5a-ec76f2fd9f0d)
+![image](https://github.com/Raga-Git/challenge_motion/assets/57023126/963e6705-bb1f-43ce-ad18-4553b3cd5deb)
+![image](https://github.com/Raga-Git/challenge_motion/assets/57023126/676dfffa-6c0c-4593-a128-d4842fdcd7cc)
+![image](https://github.com/Raga-Git/challenge_motion/assets/57023126/2a84226e-5e3b-440f-97ee-ea8db46a722f)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
