@@ -18,6 +18,7 @@ class ProfilePageView extends GetView<ProfilePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF3FAF3),
       appBar: AppBar(
         title: Row(
           children: [
@@ -30,27 +31,41 @@ class ProfilePageView extends GetView<ProfilePageController> {
             const SizedBox(
               width: 16,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Natalie Diva',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  'nataliediva@gmail.com',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
+            StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('Profile')
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Text("Mohon tunggu...");
+                  }
+
+                  if (!snapshot.hasData) {
+                    return Text("Tidak ada data...");
+                  }
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        snapshot.data!.docs.first.data()['namaLengkap'],
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        snapshot.data!.docs.first.data()['email'],
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  );
+                }),
             Spacer(),
             GestureDetector(
               onTap: () {

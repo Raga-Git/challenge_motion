@@ -1,4 +1,5 @@
 import 'package:challenge_motion/app/modules/home/views/home_view.dart';
+import 'package:challenge_motion/app/modules/kirim_permintaan/views/kirim_permintaan_view.dart';
 import 'package:challenge_motion/app/modules/produk_page/views/produk_page_view.dart';
 import 'package:challenge_motion/app/modules/profile_page/views/profile_page_view.dart';
 import 'package:challenge_motion/app/modules/riwayat_page/views/riwayat_page_view.dart';
@@ -26,9 +27,11 @@ class NavigationView extends GetView<NavigationController> {
             ],
           ),
         ),
-        floatingActionButton: controller.tabIndex != 3
+        floatingActionButton: controller.tabIndex == 1
             ? FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(KirimPermintaanView());
+                },
                 child: Image.asset(
                   'assets/images/plus.png',
                   scale: 1.5,
@@ -50,30 +53,53 @@ class NavigationView extends GetView<NavigationController> {
           currentIndex: controller.tabIndex,
           items: [
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/beranda.png',
-                  scale: 1.5,
-                  color: Color(0xFF17C118),
-                ),
-                label: 'Beranda'),
+              icon: Image.asset(
+                'assets/images/beranda.png',
+                scale: 1.5,
+              ),
+              label: 'Beranda',
+              activeIcon: Image.asset(
+                'assets/images/beranda.png',
+                scale: 1.5,
+                color: Color(0xFF17C118),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/produk.png",
-                  scale: 1.5,
-                ),
-                label: 'Produk'),
+              icon: Image.asset(
+                "assets/images/produk.png",
+                scale: 1.5,
+              ),
+              label: 'Produk',
+              activeIcon: Image.asset(
+                "assets/images/produk.png",
+                scale: 1.5,
+                color: Color(0xFF17C118),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/riwayat.png",
-                  scale: 1.5,
-                ),
-                label: 'Riwayat'),
+              icon: Image.asset(
+                "assets/images/riwayat.png",
+                scale: 1.5,
+              ),
+              label: 'Riwayat',
+              activeIcon: Image.asset(
+                "assets/images/riwayat.png",
+                scale: 1.5,
+                color: Color(0xFF17C118),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/profile_circle.png",
-                  scale: 1.5,
-                ),
-                label: 'Profile'),
+              icon: Image.asset(
+                "assets/images/profile_circle.png",
+                scale: 1.5,
+              ),
+              label: 'Profile',
+              activeIcon: Image.asset(
+                "assets/images/profile_circle.png",
+                scale: 1.5,
+                color: Color(0xFF17C118),
+              ),
+            ),
           ],
         ),
       );

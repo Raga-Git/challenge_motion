@@ -10,6 +10,7 @@ class RiwayatPageView extends GetView<RiwayatPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFF3FAF3),
         title: const Text('RiwayatPageView'),
         centerTitle: true,
       ),

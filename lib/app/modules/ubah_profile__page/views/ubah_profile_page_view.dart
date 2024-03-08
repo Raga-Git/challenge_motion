@@ -16,9 +16,6 @@ class UbahProfilePageView extends GetView<UbahProfilePageController> {
   TextEditingController noTeleponEditingController = TextEditingController();
   TextEditingController alamatEditingController = TextEditingController();
 
-  // CollectionReference collectionReference =
-  //     FirebaseFirestore.instance.collection('Profile');
-
   void update() {
     FirebaseFirestore.instance
         .collection('Profile')

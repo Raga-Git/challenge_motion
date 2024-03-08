@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/kirim_permintaan/bindings/kirim_permintaan_binding.dart';
+import '../modules/kirim_permintaan/views/kirim_permintaan_view.dart';
 import '../modules/navigation/bindings/navigation_binding.dart';
 import '../modules/navigation/views/navigation_view.dart';
 import '../modules/produk_page/bindings/produk_page_binding.dart';
@@ -35,7 +37,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE_PAGE,
-      page: () =>  ProfilePageView(),
+      page: () => ProfilePageView(),
       binding: ProfilePageBinding(),
     ),
     GetPage(
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.UBAH_PASWWORD_PAGE,
       page: () => UbahPaswwordPageView(),
       binding: UbahPaswwordPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.KIRIM_PERMINTAAN,
+      page: () => KirimPermintaanView(),
+      binding: KirimPermintaanBinding(),
     ),
   ];
 }

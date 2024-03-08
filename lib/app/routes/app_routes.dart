@@ -10,6 +10,7 @@ abstract class Routes {
   static const PRODUK_PAGE = _Paths.PRODUK_PAGE;
   static const UBAH_PROFILE_PAGE = _Paths.UBAH_PROFILE_PAGE;
   static const UBAH_PASWWORD_PAGE = _Paths.UBAH_PASWWORD_PAGE;
+  static const KIRIM_PERMINTAAN = _Paths.KIRIM_PERMINTAAN;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const PRODUK_PAGE = '/produk-page';
   static const UBAH_PROFILE_PAGE = '/ubah-profile-page';
   static const UBAH_PASWWORD_PAGE = '/ubah-paswword-page';
+  static const KIRIM_PERMINTAAN = '/kirim-permintaan';
 }

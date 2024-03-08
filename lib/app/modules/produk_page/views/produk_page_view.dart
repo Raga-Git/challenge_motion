@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:challenge_motion/app/modules/shared/widgets/produk_card.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class ProdukPageView extends GetView<ProdukPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF3FAF3),
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,18 +57,34 @@ class ProdukPageView extends GetView<ProdukPageController> {
         toolbarHeight: 140,
         automaticallyImplyLeading: false,
       ),
-      body: GridView.builder(
-        padding: EdgeInsets.all(16),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 3 / 4),
-        itemCount: 8,
-        itemBuilder: (BuildContext context, int index) {
-          return ProdukCard(produkModel: controller.produkModel);
-        },
-      ),
+      body: StreamBuilder(
+          stream: FirebaseFirestore.instance.collection('product').snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Text("Mohon tunggu...");
+            }
+
+            if (snapshot.hasData == false) {
+              return Text("Tidak ada data...");
+            }
+            return GridView.builder(
+              padding: EdgeInsets.all(16),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 3 / 4),
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (BuildContext context, int index) {
+                var document = snapshot.data!.docs[index];
+                return ProdukCard(
+                  id: document.id,
+                  namaProduct: document['namaProduct'],
+                  proses: document['proses'],
+                );
+              },
+            );
+          }),
     );
   }
 }
