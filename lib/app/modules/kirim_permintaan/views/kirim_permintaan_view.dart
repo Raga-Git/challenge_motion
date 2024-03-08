@@ -13,7 +13,7 @@ class KirimPermintaanView extends GetView<KirimPermintaanController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color(0xFFF3FAF3),
         appBar: AppBar(
           title: Text(
@@ -68,6 +68,91 @@ class KirimPermintaanView extends GetView<KirimPermintaanController> {
               TextField(
                 controller: controller.nameC,
                 decoration: InputDecoration(isDense: true),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                'Deskripsi Produk',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                'Produk Fresh dan Menyenangkan',
+                style: GoogleFonts.poppins(),
+              ),
+              Divider(
+                color: Colors.black45,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                'Kategori',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                'Sayuran',
+                style: GoogleFonts.poppins(),
+              ),
+              Divider(
+                color: Colors.black45,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                'Harga',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                'Rp50.000',
+                style: GoogleFonts.poppins(),
+              ),
+              Divider(
+                color: Colors.black45,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                'Jumlah',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                '1',
+                style: GoogleFonts.poppins(),
+              ),
+              Divider(
+                color: Colors.black45,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                'Durasi Tahan',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                '2-4 hari',
+                style: GoogleFonts.poppins(),
+              ),
+              Divider(
+                color: Colors.black45,
               ),
               Spacer(),
               ElevatedButton(
